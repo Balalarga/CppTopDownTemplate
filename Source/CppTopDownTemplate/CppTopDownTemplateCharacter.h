@@ -3,6 +3,9 @@
 #pragma once
 
 #include "CoreMinimal.h"
+
+#include "Components/InteractionComponent.h"
+
 #include "GameFramework/Character.h"
 #include "CppTopDownTemplateCharacter.generated.h"
 
@@ -24,7 +27,10 @@ public:
 	/** Returns CursorToWorld subobject **/
 	FORCEINLINE class UDecalComponent* GetCursorToWorld() { return CursorToWorld; }
 
+	UPROPERTY(VisibleAnywhere, BlueprintReadWrite)
+	TArray<UInteractionComponent*> Interactables;
 private:
+
 	/** Top down camera */
 	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = Camera, meta = (AllowPrivateAccess = "true"))
 	class UCameraComponent* TopDownCameraComponent;
